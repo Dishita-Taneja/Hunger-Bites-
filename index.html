@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Foodie's Delight</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="enhanced-colors.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loader">
+      <div class="spinner"></div>
+      <p>Loading deliciousness...</p>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header>
+    <div class="logo">🍔 HungerBites</div>
+    <nav class="nav-menu">
+      <ul>
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#menu" class="nav-link">Menu</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle dark/light theme">
+        <i class="fas fa-moon"></i>
+      </button>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1 class="hero-title">Welcome to HungerBites</h1>
+      <div class="headline-bg">
+        <h1>Delicious Food Delivered To You</h1>
+      </div>
+      <p class="hero-subtitle">Fresh ingredients. Fast delivery. Unmatched taste.</p>
+      <div class="hero-stats">
+        <div class="stat">
+          <i class="fas fa-clock"></i>
+          <span>30 min delivery</span>
+        </div>
+        <div class="stat">
+          <i class="fas fa-star"></i>
+          <span>4.8 rating</span>
+        </div>
+        <div class="stat">
+          <i class="fas fa-users"></i>
+          <span>10k+ customers</span>
+        </div>
+      </div>
+      <img src="hero.jpg" alt="Delicious Burger" class="hero-image"/>
+      <div class="hero-buttons">
+        <a href="#menu" class="btn btn-primary">Explore Menu</a>
+        <a href="#contact" class="btn btn-secondary">Order Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section id="menu" class="menu-section">
+    <h2>🍽️ Signature Dishes You’ll Love</h2>
+    
+    <div class="menu-controls">
+      <div class="menu-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="burgers">Burgers</button>
+        <button class="filter-btn" data-filter="pizza">Pizza</button>
+        <button class="filter-btn" data-filter="pasta">Pasta</button>
+        <button class="filter-btn" data-filter="desserts">Desserts</button>
+        <button class="filter-btn" data-filter="drinks">Drinks</button>
+      </div>
+      
+      <div class="search-and-sort">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="menuSearch" class="search-input" placeholder="Search delicious dishes...">
+        </div>
+        <div class="sort-and-veg">
+          <label class="veg-toggle-container" for="vegToggle">
+            <span class="veg-switch">
+              <input type="checkbox" id="vegToggle">
+              <span class="veg-slider"></span>
+            </span>
+            <span class="veg-label" id="vegLabel">Veg Only 🌱</span>
+          </label>
+          
+          <select id="menuSort" class="sort-dropdown">
+            <option value="popularity">Sort by: Popularity</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating">Sort by: Rating</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-grid">
+      <!-- 1. Cheese Burger (burgers) -->
+      <div class="menu-card" data-category="burgers" data-veg="false" data-price="199" data-rating="4.8" data-popularity="9">
+        <div class="card-badge">Chef's Special</div>
+        <img src="burger.jpg" alt="Burger">
+        <div class="card-meta">
+          <span class="diet-indicator non-veg"><i class="fas fa-circle"></i> Non-Veg</span>
+          <span class="card-rating-stars"><i class="fas fa-star"></i> 4.8</span>
+        </div>
+        <h3>Cheese Burger</h3>
+        <p>Juicy beef patty with melted cheese</p>
+        <div class="card-footer">
+          <span class="price">₹199</span>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      
+      <!-- 2. Margherita Pizza (pizza) -->
+      <div class="menu-card" data-category="pizza" data-veg="true" data-price="299" data-rating="4.7" data-popularity="8">
+        <div class="card-badge">Popular</div>
+        <img src="pizza.jpg" alt="Pizza">
+        <div class="card-meta">
+          <span class="diet-indicator veg"><i class="fas fa-circle"></i> Veg</span>
+          <span class="card-rating-stars"><i class="fas fa-star"></i> 4.7</span>
+        </div>
+        <h3>Margherita Pizza</h3>
+        <p>Classic cheese and tomato delight</p>
+        <div class="card-footer">
+          <span class="price">₹299</span>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      
+      <!-- 3. Italian Pasta (pasta) -->
+      <div class="menu-card" data-category="pasta" data-veg="true" data-price="249" data-rating="4.6" data-popularity="7">
+        <div class="card-badge">New</div>
+        <img src="pasta.png" alt="Pasta">
+        <div class="card-meta">
+          <span class="diet-indicator veg"><i class="fas fa-circle"></i> Veg</span>
+          <span class="card-rating-stars"><i class="fas fa-star"></i> 4.6</span>
+        </div>
+        <h3>Italian Pasta</h3>
+        <p>Creamy sauce with herbs & cheese</p>
+        <div class="card-footer">
+          <span class="price">₹249</span>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      
+      <!-- 4. Chocolate Cake (desserts) -->
+      <div class="menu-card" data-category="desserts" data-veg="true" data-price="149" data-rating="4.9" data-popularity="10">
+        <div class="card-badge">Sweet</div>
+        <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&h=300&fit=crop" alt="Chocolate Cake">
+        <div class="card-meta">
+          <span class="diet-indicator veg"><i class="fas fa-circle"></i> Veg</span>
+          <span class="card-rating-stars"><i class="fas fa-star"></i> 4.9</span>
+        </div>
+        <h3>Chocolate Cake</h3>
+        <p>Rich chocolate layers with cream</p>
+        <div class="card-footer">
+          <span class="price">₹149</span>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      
+      <!-- 5. Spicy Chicken Burger (burgers) -->
+      <div class="menu-card" data-category="burgers" data-veg="false" data-price="179" data-rating="4.5" data-popularity="6">
+        <div class="card-badge">Spicy</div>
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop" alt="Spicy Burger">
+        <div class="card-meta">
+          <span class="diet-indicator non-veg"><i class="fas fa-circle"></i> Non-Veg</span>
+          <span class="card-rating-stars"><i class="fas fa-star"></i> 4.5</span>
+        </div>
+        <h3>Spicy Chicken Burger</h3>
+        <p>Crispy chicken with hot sauce</p>
+        <div class="card-footer">
+          <span class="price">₹179</span>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      
+      <!-- 6. Veggie Supreme (pizza) -->
+      <div class="menu-card" data-category="pizza" data-veg="true" data-price="279" data-rating="4.6" data-popularity="5">
+        <div class="card-badge">Veg</div>
+        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&h=300&fit=crop" alt="Veggie Pizza">
+        <div class="card-meta">
+          <span class="diet-indicator veg"><i class="fas fa-circle"></i> Veg</span>
+          <span class="card-rating-stars"><i class="fas fa-star"></i> 4.6</span>
+        </div>
+        <h3>Veggie Supreme</h3>
+        <p>Fresh vegetables with mozzarella</p>
+        <div class="card-footer">
+          <span class="price">₹279</span>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      
+      <!-- 7. Vanilla Ice Cream (desserts) -->
+      <div class="menu-card" data-category="desserts" data-veg="true" data-price="99" data-rating="4.4" data-popularity="3">
+        <div class="card-badge">Fresh</div>
+        <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&h=300&fit=crop" alt="Ice Cream">
+        <div class="card-meta">
+          <span class="diet-indicator veg"><i class="fas fa-circle"></i> Veg</span>
+          <span class="card-rating-stars"><i class="fas fa-star"></i> 4.4</span>
+        </div>
+        <h3>Vanilla Ice Cream</h3>
+        <p>Creamy vanilla with toppings</p>
+        <div class="card-footer">
+          <span class="price">₹99</span>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      
+      <!-- 8. Berry Smoothie (drinks) -->
+      <div class="menu-card" data-category="drinks" data-veg="true" data-price="129" data-rating="4.3" data-popularity="2">
+        <div class="card-badge">Refreshing</div>
+        <img src="https://images.unsplash.com/photo-1546173159-315724a31696?w=400&h=300&fit=crop" alt="Smoothie">
+        <div class="card-meta">
+          <span class="diet-indicator veg"><i class="fas fa-circle"></i> Veg</span>
+          <span class="card-rating-stars"><i class="fas fa-star"></i> 4.3</span>
+        </div>
+        <h3>Berry Smoothie</h3>
+        <p>Fresh berries blended to perfection</p>
+        <div class="card-footer">
+          <span class="price">₹129</span>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      
+      <!-- 9. Carbonara Pasta (pasta) -->
+      <div class="menu-card" data-category="pasta" data-veg="false" data-price="329" data-rating="4.7" data-popularity="4">
+        <div class="card-badge">Premium</div>
+        <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400&h=300&fit=crop" alt="Carbonara">
+        <div class="card-meta">
+          <span class="diet-indicator non-veg"><i class="fas fa-circle"></i> Non-Veg</span>
+          <span class="card-rating-stars"><i class="fas fa-star"></i> 4.7</span>
+        </div>
+        <h3>Carbonara Pasta</h3>
+        <p>Classic Italian with eggs & bacon</p>
+        <div class="card-footer">
+          <span class="price">₹329</span>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- 10. Classic Veggie Burger (burgers) -->
+      <div class="menu-card" data-category="burgers" data-veg="true" data-price="149" data-rating="4.6" data-popularity="5">
+        <div class="card-badge">Classic</div>
+        <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=400&h=300&fit=crop" alt="Veggie Burger">
+        <div class="card-meta">
+          <span class="diet-indicator veg"><i class="fas fa-circle"></i> Veg</span>
+          <span class="card-rating-stars"><i class="fas fa-star"></i> 4.6</span>
+        </div>
+        <h3>Classic Veggie Burger</h3>
+        <p>Crispy plant-based patty with fresh lettuce</p>
+        <div class="card-footer">
+          <span class="price">₹149</span>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- 11. Double BBQ Burger (burgers) -->
+      <div class="menu-card" data-category="burgers" data-veg="false" data-price="249" data-rating="4.8" data-popularity="8">
+        <div class="card-badge">Loaded</div>
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop" alt="Bacon Burger">
+        <div class="card-meta">
+          <span class="diet-indicator non-veg"><i class="fas fa-circle"></i> Non-Veg</span>
+          <span class="card-rating-stars"><i class="fas fa-star"></i> 4.8</span>
+        </div>
+        <h3>Double BBQ Burger</h3>
+        <p>Two flame-grilled beef patties with crispy bacon</p>
+        <div class="card-footer">
+          <span class="price">₹249</span>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- 12. Pepperoni Feast (pizza) -->
+      <div class="menu-card" data-category="pizza" data-veg="false" data-price="349" data-rating="4.9" data-popularity="9">
+        <div class="card-badge">Spicy</div>
+        <img src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=400&h=300&fit=crop" alt="Pepperoni Pizza">
+        <div class="card-meta">
+          <span class="diet-indicator non-veg"><i class="fas fa-circle"></i> Non-Veg</span>
+          <span class="card-rating-stars"><i class="fas fa-star"></i> 4.9</span>
+        </div>
+        <h3>Pepperoni Feast</h3>
+        <p>Double pepperoni layer with extra mozzarella</p>
+        <div class="card-footer">
+          <span class="price">₹349</span>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- 13. Paneer Tikka Pizza (pizza) -->
+      <div class="menu-card" data-category="pizza" data-veg="true" data-price="329" data-rating="4.7" data-popularity="7">
+        <div class="card-badge">Indian Style</div>
+        <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=400&h=300&fit=crop" alt="Paneer Pizza">
+        <div class="card-meta">
+          <span class="diet-indicator veg"><i class="fas fa-circle"></i> Veg</span>
+          <span class="card-rating-stars"><i class="fas fa-star"></i> 4.7</span>
+        </div>
+        <h3>Paneer Tikka Pizza</h3>
+        <p>Spiced paneer cubes with onions & capsicum</p>
+        <div class="card-footer">
+          <span class="price">₹329</span>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- 14. Pesto Cavatappi (pasta) -->
+      <div class="menu-card" data-category="pasta" data-veg="true" data-price="279" data-rating="4.5" data-popularity="6">
+        <div class="card-badge">Herbaceous</div>
+        <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=400&h=300&fit=crop" alt="Pesto Pasta">
+        <div class="card-meta">
+          <span class="diet-indicator veg"><i class="fas fa-circle"></i> Veg</span>
+          <span class="card-rating-stars"><i class="fas fa-star"></i> 4.5</span>
+        </div>
+        <h3>Pesto Cavatappi</h3>
+        <p>Corkscrew pasta tossed in creamy basil pesto</p>
+        <div class="card-footer">
+          <span class="price">₹279</span>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- 15. Spicy Arrabbiata (pasta) -->
+      <div class="menu-card" data-category="pasta" data-veg="true" data-price="229" data-rating="4.4" data-popularity="4">
+        <div class="card-badge">Zesty</div>
+        <img src="https://images.unsplash.com/photo-1563379971899-660589a01cc3?w=400&h=300&fit=crop" alt="Arrabbiata Pasta">
+        <div class="card-meta">
+          <span class="diet-indicator veg"><i class="fas fa-circle"></i> Veg</span>
+          <span class="card-rating-stars"><i class="fas fa-star"></i> 4.4</span>
+        </div>
+        <h3>Spicy Arrabbiata</h3>
+        <p>Penne pasta in spicy tomato garlic sauce</p>
+        <div class="card-footer">
+          <span class="price">₹229</span>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- 16. Red Velvet Cupcake (desserts) -->
+      <div class="menu-card" data-category="desserts" data-veg="true" data-price="119" data-rating="4.7" data-popularity="5">
+        <div class="card-badge">Bestseller</div>
+        <img src="https://images.unsplash.com/photo-1614707267537-b85acf00c4b8?w=400&h=300&fit=crop" alt="Red Velvet Cupcake">
+        <div class="card-meta">
+          <span class="diet-indicator veg"><i class="fas fa-circle"></i> Veg</span>
+          <span class="card-rating-stars"><i class="fas fa-star"></i> 4.7</span>
+        </div>
+        <h3>Red Velvet Cupcake</h3>
+        <p>Fluffy cake with vanilla cream cheese frosting</p>
+        <div class="card-footer">
+          <span class="price">₹119</span>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- 17. Italian Tiramisu (desserts) -->
+      <div class="menu-card" data-category="desserts" data-veg="true" data-price="189" data-rating="4.9" data-popularity="8">
+        <div class="card-badge">Classic</div>
+        <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400&h=300&fit=crop" alt="Tiramisu">
+        <div class="card-meta">
+          <span class="diet-indicator veg"><i class="fas fa-circle"></i> Veg</span>
+          <span class="card-rating-stars"><i class="fas fa-star"></i> 4.9</span>
+        </div>
+        <h3>Italian Tiramisu</h3>
+        <p>Espresso-soaked ladyfingers with mascarpone cream</p>
+        <div class="card-footer">
+          <span class="price">₹189</span>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- 18. Caramel Macchiato (drinks) -->
+      <div class="menu-card" data-category="drinks" data-veg="true" data-price="149" data-rating="4.6" data-popularity="7">
+        <div class="card-badge">Cold Brew</div>
+        <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=400&h=300&fit=crop" alt="Caramel Macchiato">
+        <div class="card-meta">
+          <span class="diet-indicator veg"><i class="fas fa-circle"></i> Veg</span>
+          <span class="card-rating-stars"><i class="fas fa-star"></i> 4.6</span>
+        </div>
+        <h3>Caramel Macchiato</h3>
+        <p>Cold espresso milk drizzle with rich caramel sauce</p>
+        <div class="card-footer">
+          <span class="price">₹149</span>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- 19. Fresh Mint Mojito (drinks) -->
+      <div class="menu-card" data-category="drinks" data-veg="true" data-price="119" data-rating="4.5" data-popularity="6">
+        <div class="card-badge">Cold</div>
+        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=400&h=300&fit=crop" alt="Mint Mojito">
+        <div class="card-meta">
+          <span class="diet-indicator veg"><i class="fas fa-circle"></i> Veg</span>
+          <span class="card-rating-stars"><i class="fas fa-star"></i> 4.5</span>
+        </div>
+        <h3>Fresh Mint Mojito</h3>
+        <p>Muddled mint leaves, lime juice, soda, and ice</p>
+        <div class="card-footer">
+          <span class="price">₹119</span>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>🌟 Who We Are</h2>
+    <div class="about-content">
+      <div class="about-text">
+        <p>
+          At HungerBites, we live and breathe flavor. From reinventing global classics to crafting culinary surprises, our chefs serve more than meals—they serve memories. We’re here to bring you joy, one delightful bite at a time.
+        </p>
+        <div class="about-features">
+          <div class="feature">
+            <i class="fas fa-leaf"></i>
+            <h4>Fresh Ingredients</h4>
+            <p>We source only the finest ingredients</p>
+          </div>
+          <div class="feature">
+            <i class="fas fa-shipping-fast"></i>
+            <h4>Fast Delivery</h4>
+            <p>Hot food delivered in 30 minutes</p>
+          </div>
+          <div class="feature">
+            <i class="fas fa-heart"></i>
+            <h4>Made with Love</h4>
+            <p>Every dish prepared with care</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&h=400&fit=crop" alt="Our Kitchen">
+      </div>
+    </div>
+    <p class="credit"><em>This website is crafted by Dishita Taneja.</em></p>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials">
+    <h2>💬 Hear From Our Happy Foodies</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <p>"Absolutely mouthwatering burgers and lightning-fast delivery. I'm hooked!"</p>
+        <div class="customer">
+          <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=60&h=60&fit=crop&crop=face" alt="Sarah">
+          <div>
+            <h4>Sarah Johnson</h4>
+            <span>Regular Customer</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <p>"Hands down the best pizza in town—crispy, fresh, and always satisfying!"</p>
+        <div class="customer">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face" alt="Mike">
+          <div>
+            <h4>Mike Chen</h4>
+            <span>Food Blogger</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <p>"Every order is a treat. The pasta? Simply perfection on a plate!"</p>
+        <div class="customer">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&crop=face" alt="Emma">
+          <div>
+            <h4>Emma Davis</h4>
+            <span>Local Resident</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="add-review-btn-container">
+      <button class="btn btn-primary" id="openReviewBtn"><i class="fas fa-pen-to-square"></i> Leave a Review</button>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>📞 Let’s Get in Touch</h2>
+    <div class="contact-content">
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <h4>Address</h4>
+            <p>123 Food Street, Cuisine City, CC 12345</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <div>
+            <h4>Phone</h4>
+            <p>+1 (555) 123-4567</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <h4>Email</h4>
+            <p>hello@hungerbites.com</p>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <input type="tel" placeholder="Your Phone">
+        <textarea placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit">
+          <i class="fas fa-paper-plane"></i>
+          Send Message
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>🍔 HungerBites</h3>
+        <p>Bringing joy to your doorstep, one delicious bite at a time.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Opening Hours</h4>
+        <p>Monday - Friday: 11:00 AM - 10:00 PM</p>
+        <p>Saturday - Sunday: 12:00 PM - 11:00 PM</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 HungerBites. Designed and served with ❤️ by Dishita Taneja</p>
+    </div>
+  </footer>
+
+  <!-- Cart Sidebar -->
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button class="close-cart" id="closeCart">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <!-- Cart items will be added here dynamically -->
+    </div>
+    
+    <!-- Promo Code Section -->
+    <div class="cart-promo-section">
+      <div class="promo-input-group">
+        <input type="text" id="promoInput" class="promo-input" placeholder="Enter coupon code...">
+        <button id="applyPromoBtn" class="apply-promo-btn">Apply</button>
+      </div>
+      <div id="promoMessage" class="promo-message"></div>
+    </div>
+    
+    <!-- Pricing Table Breakdown -->
+    <div class="cart-total">
+      <table class="cart-summary-table">
+        <tr>
+          <td>Subtotal</td>
+          <td id="summarySubtotal">₹0</td>
+        </tr>
+        <tr id="discountRow" style="display: none;">
+          <td>Discount (<span id="discountName">-</span>)</td>
+          <td id="summaryDiscount" style="color: var(--accent-green);">-₹0</td>
+        </tr>
+        <tr>
+          <td>Delivery Fee</td>
+          <td id="summaryDelivery">₹0</td>
+        </tr>
+        <tr>
+          <td>Taxes (5% GST)</td>
+          <td id="summaryTax">₹0</td>
+        </tr>
+        <tr class="total-row">
+          <td>Grand Total</td>
+          <td id="cartTotal">₹0</td>
+        </tr>
+      </table>
+      <button class="btn btn-primary checkout-btn" id="checkoutBtn">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <!-- Cart Toggle Button -->
+  <div class="cart-toggle" id="cartToggle">
+    <i class="fas fa-shopping-cart"></i>
+    <span class="cart-count" id="cartCount">0</span>
+  </div>
+
+  <!-- Food Detail & Customization Modal -->
+  <dialog id="foodDetailModal">
+    <div class="modal-header">
+      <h3 id="modalFoodName">Food Item Details</h3>
+      <button class="close-modal" id="closeFoodModal"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="food-detail-hero">
+        <span class="badge" id="modalFoodBadge">Chef's Special</span>
+        <img id="modalFoodImage" src="" alt="Food Item">
+      </div>
+      <div class="food-detail-info">
+        <p id="modalFoodDescription">Tasty food description goes here...</p>
+        <div class="nutrients-grid">
+          <div class="nutrient-item"><span id="nutrCal">320</span>Cals</div>
+          <div class="nutrient-item"><span id="nutrProt">12g</span>Protein</div>
+          <div class="nutrient-item"><span id="nutrCarb">34g</span>Carbs</div>
+        </div>
+      </div>
+      
+      <!-- Customization options -->
+      <form id="customizationForm">
+        <div class="customization-section">
+          <h4>Select Portion Size</h4>
+          <div class="custom-options-list">
+            <label class="custom-option">
+              <span class="custom-option-label">
+                <input type="radio" name="size" value="Regular" checked>
+                Regular
+              </span>
+              <span class="custom-option-price">+₹0</span>
+            </label>
+            <label class="custom-option">
+              <span class="custom-option-label">
+                <input type="radio" name="size" value="Medium">
+                Medium
+              </span>
+              <span class="custom-option-price">+₹60</span>
+            </label>
+            <label class="custom-option">
+              <span class="custom-option-label">
+                <input type="radio" name="size" value="Large">
+                Large
+              </span>
+              <span class="custom-option-price">+₹120</span>
+            </label>
+          </div>
+        </div>
+        
+        <div class="customization-section">
+          <h4>Choose Extras</h4>
+          <div class="custom-options-list">
+            <label class="custom-option">
+              <span class="custom-option-label">
+                <input type="checkbox" name="extra" value="Extra Cheese">
+                Extra Cheese
+              </span>
+              <span class="custom-option-price">+₹49</span>
+            </label>
+            <label class="custom-option">
+              <span class="custom-option-label">
+                <input type="checkbox" name="extra" value="Double Cheese">
+                Double Cheese
+              </span>
+              <span class="custom-option-price">+₹79</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="customization-section">
+          <h4>Spiciness Level</h4>
+          <div class="custom-options-list">
+            <label class="custom-option">
+              <span class="custom-option-label">
+                <input type="radio" name="spicy" value="Mild" checked>
+                Mild (No spice)
+              </span>
+              <span class="custom-option-price">+₹0</span>
+            </label>
+            <label class="custom-option">
+              <span class="custom-option-label">
+                <input type="radio" name="spicy" value="Spicy">
+                Spicy
+              </span>
+              <span class="custom-option-price">+₹0</span>
+            </label>
+            <label class="custom-option">
+              <span class="custom-option-label">
+                <input type="radio" name="spicy" value="Flame Hot">
+                Flame Hot 🔥
+              </span>
+              <span class="custom-option-price">+₹0</span>
+            </label>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" id="cancelFoodBtn">Cancel</button>
+      <button class="btn btn-primary" id="addCustomizedToCartBtn">Add to Cart - <span id="modalTotalPrice">₹0</span></button>
+    </div>
+  </dialog>
+
+  <!-- Multi-step Checkout Modal -->
+  <dialog id="checkoutModal">
+    <div class="modal-header">
+      <h3>Secure Checkout</h3>
+      <button class="close-modal" id="closeCheckoutModal"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <!-- Steps Indicator -->
+      <div class="checkout-steps">
+        <div class="checkout-step-progress" id="checkoutProgress"></div>
+        <div class="checkout-step-dot active" data-step="1">1</div>
+        <div class="checkout-step-dot" data-step="2">2</div>
+        <div class="checkout-step-dot" data-step="3">3</div>
+        <div class="checkout-step-dot" data-step="4">4</div>
+      </div>
+      
+      <!-- Panel 1: Order Summary -->
+      <div class="checkout-step-panel active" id="stepPanel1">
+        <h4 class="mb-2">Review Your Order</h4>
+        <div id="checkoutSummaryItems" style="margin-bottom: 1.5rem; max-height: 200px; overflow-y: auto;">
+          <!-- items list -->
+        </div>
+        <table class="cart-summary-table" style="background: rgba(255,255,255,0.02); padding: 15px; border-radius: 12px; border: 1px solid var(--border-light);">
+          <tr>
+            <td>Subtotal</td>
+            <td id="chkSubtotal">₹0</td>
+          </tr>
+          <tr id="chkDiscountRow" style="display: none;">
+            <td>Discount</td>
+            <td id="chkDiscount" style="color: var(--accent-green);">-₹0</td>
+          </tr>
+          <tr>
+            <td>Delivery Fee</td>
+            <td id="chkDelivery">₹0</td>
+          </tr>
+          <tr>
+            <td>Taxes (5% GST)</td>
+            <td id="chkTax">₹0</td>
+          </tr>
+          <tr class="total-row">
+            <td>Grand Total</td>
+            <td id="chkTotal" style="font-size: 1.3rem;">₹0</td>
+          </tr>
+        </table>
+      </div>
+      
+      <!-- Panel 2: Delivery Details -->
+      <div class="checkout-step-panel" id="stepPanel2">
+        <h4 class="mb-2">Delivery Address</h4>
+        <form id="addressForm">
+          <div class="form-group">
+            <label for="custName">Full Name</label>
+            <input type="text" id="custName" required placeholder="John Doe">
+          </div>
+          <div class="form-group">
+            <label for="custPhone">Phone Number</label>
+            <input type="tel" id="custPhone" required placeholder="+1 (555) 000-0000">
+          </div>
+          <div class="form-group">
+            <label for="custAddress">Full Address</label>
+            <textarea id="custAddress" required rows="3" placeholder="Apartment, Street Name, City, Pincode"></textarea>
+          </div>
+        </form>
+      </div>
+      
+      <!-- Panel 3: Payment Details -->
+      <div class="checkout-step-panel" id="stepPanel3">
+        <h4 class="mb-2">Choose Payment Method</h4>
+        <div class="payment-options-grid">
+          <div class="payment-option-card selected" data-method="upi">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+            <span>UPI (Paytm/GPay)</span>
+          </div>
+          <div class="payment-option-card" data-method="card">
+            <i class="fa-solid fa-credit-card"></i>
+            <span>Credit/Debit Card</span>
+          </div>
+          <div class="payment-option-card" data-method="netbanking">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Net Banking</span>
+          </div>
+          <div class="payment-option-card" data-method="cod">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+            <span>Cash on Delivery</span>
+          </div>
+        </div>
+        
+        <!-- Interactive UPI Input -->
+        <div id="paymentUpiInput" class="form-group">
+          <label for="upiId">Enter UPI ID</label>
+          <input type="text" id="upiId" placeholder="username@upi">
+        </div>
+        
+        <!-- Interactive Card Inputs -->
+        <div id="paymentCardInput" class="form-group" style="display: none;">
+          <label for="cardNumber">Card Number</label>
+          <input type="text" id="cardNumber" placeholder="1234 5678 1234 5678">
+          <div style="display: flex; gap: 10px; margin-top: 10px;">
+            <input type="text" placeholder="MM/YY" style="flex: 1;">
+            <input type="password" placeholder="CVV" style="width: 80px;">
+          </div>
+        </div>
+      </div>
+      
+      <!-- Panel 4: Live Order Tracker -->
+      <div class="checkout-step-panel" id="stepPanel4">
+        <div class="tracking-container">
+          <h4 class="mb-2" style="color: var(--accent-green); text-align: center;"><i class="fa-solid fa-circle-check"></i> Order Placed Successfully!</h4>
+          <p style="color: var(--text-secondary); margin-bottom: 1.5rem; text-align: center;">We've received your order and are preparing it.</p>
+          
+          <div class="tracking-scooter-wrapper">
+            <div class="tracking-scooter-path"></div>
+            <div class="tracking-scooter-fill" id="trackerFill"></div>
+            <i class="fa-solid fa-motorcycle tracking-scooter-icon" id="trackerScooter"></i>
+          </div>
+          
+          <div class="tracking-timeline">
+            <div class="tracking-timeline-item active" id="trackStep1">
+              <h5>Order Confirmed</h5>
+              <p>Kitchen is reviewing your order details</p>
+            </div>
+            <div class="tracking-timeline-item" id="trackStep2">
+              <h5>Preparing Your Meal</h5>
+              <p>Our expert chefs are cooking your fresh food</p>
+            </div>
+            <div class="tracking-timeline-item" id="trackStep3">
+              <h5>Out for Delivery</h5>
+              <p>HungerBites rider is speeding to your location</p>
+            </div>
+            <div class="tracking-timeline-item" id="trackStep4">
+              <h5>Delivered!</h5>
+              <p>Enjoy your hot and delicious meal!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer" id="checkoutModalFooter">
+      <button class="btn btn-secondary" id="checkoutBackBtn" style="display: none;">Back</button>
+      <button class="btn btn-primary" id="checkoutNextBtn">Next</button>
+    </div>
+  </dialog>
+
+  <!-- Submit Review Modal -->
+  <dialog id="reviewModal">
+    <div class="modal-header">
+      <h3>Share Your Food Experience</h3>
+      <button class="close-modal" id="closeReviewModal"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <form id="reviewForm">
+        <div class="form-group">
+          <label for="revName">Your Name</label>
+          <input type="text" id="revName" required placeholder="Alex Mercer">
+        </div>
+        <div class="form-group">
+          <label>Select Rating</label>
+          <div class="star-rating-select" id="starRatingSelector">
+            <i class="fas fa-star" data-rating="1"></i>
+            <i class="fas fa-star" data-rating="2"></i>
+            <i class="fas fa-star" data-rating="3"></i>
+            <i class="fas fa-star" data-rating="4"></i>
+            <i class="fas fa-star" data-rating="5"></i>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Select Avatar</label>
+          <div class="avatar-options-grid" id="avatarSelector">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&h=60&fit=crop" class="avatar-option selected" data-avatar="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&h=60&fit=crop" alt="Avatar 1">
+            <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=60&h=60&fit=crop" class="avatar-option" data-avatar="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=60&h=60&fit=crop" alt="Avatar 2">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop" class="avatar-option" data-avatar="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop" alt="Avatar 3">
+            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=60&h=60&fit=crop" class="avatar-option" data-avatar="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=60&h=60&fit=crop" alt="Avatar 4">
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=60&h=60&fit=crop" class="avatar-option" data-avatar="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=60&h=60&fit=crop" alt="Avatar 5">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="revComment">Write Review</label>
+          <textarea id="revComment" required rows="3" placeholder="What did you love about our food/service?"></textarea>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" id="cancelReviewBtn">Cancel</button>
+      <button class="btn btn-primary" id="submitReviewBtn">Post Review</button>
+    </div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>

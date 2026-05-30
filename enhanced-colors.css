@@ -1,0 +1,514 @@
+/* Enhanced Color Scheme for HungerBites */
+
+/* CSS Custom Properties for Beautiful Colors */
+:root {
+  /* Primary Colors - Vibrant Orange to Pink Gradient */
+  --primary-gradient: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 25%, #ffa726 50%, #ff7043 75%, #ff5722 100%);
+  --primary-light: #ff6b6b;
+  --primary-medium: #ff8e53;
+  --primary-dark: #ff5722;
+  
+  /* Secondary Colors - Purple to Blue Gradient */
+  --secondary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-light: #667eea;
+  --secondary-dark: #764ba2;
+  
+  /* Background Colors - Rich Dark Theme */
+  --bg-primary: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 100%);
+  --bg-secondary: linear-gradient(135deg, #2d1b69 0%, #11998e 100%);
+  --bg-card: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  --bg-glass: rgba(255, 255, 255, 0.1);
+  
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #e8f4fd;
+  --text-muted: #bdc3c7;
+  --text-accent: #f39c12;
+  
+  /* Accent Colors */
+  --accent-gold: #f1c40f;
+  --accent-green: #2ecc71;
+  --accent-red: #e74c3c;
+  --accent-purple: #9b59b6;
+  --accent-pink: #e91e63;
+  
+  /* Shadow Colors */
+  --shadow-primary: rgba(255, 107, 107, 0.3);
+  --shadow-secondary: rgba(102, 126, 234, 0.3);
+  --shadow-dark: rgba(0, 0, 0, 0.4);
+  
+  /* Border Colors */
+  --border-primary: rgba(255, 107, 107, 0.3);
+  --border-secondary: rgba(102, 126, 234, 0.3);
+  --border-light: rgba(255, 255, 255, 0.1);
+}
+
+/* Apply Enhanced Colors to Existing Elements */
+
+/* Body Background */
+body {
+  background: var(--bg-primary) !important;
+}
+
+/* Loading Screen */
+.loading-screen {
+  background: var(--bg-primary) !important;
+}
+
+.spinner {
+  border-color: rgba(255, 107, 107, 0.3) !important;
+  border-top-color: var(--primary-light) !important;
+}
+
+.loader p {
+  background: var(--primary-gradient) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* Navbar */
+header {
+  background: rgba(26, 26, 46, 0.95) !important;
+  border-bottom: 1px solid var(--border-light) !important;
+}
+
+.logo {
+  background: var(--primary-gradient) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  text-shadow: 0 2px 16px var(--shadow-primary) !important;
+}
+
+.nav-menu a:hover {
+  color: var(--primary-light) !important;
+}
+
+.nav-menu a::after {
+  background: var(--primary-gradient) !important;
+}
+
+.hamburger span {
+  background: var(--primary-light) !important;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(rgba(255, 107, 107, 0.4), rgba(102, 126, 234, 0.6)), url('hero.jpg') center/cover no-repeat !important;
+  box-shadow: 0 8px 32px var(--shadow-primary) !important;
+}
+
+.hero-content {
+  background: rgba(26, 26, 46, 0.8) !important;
+  border: 1px solid var(--border-primary) !important;
+  box-shadow: 0 8px 32px var(--shadow-primary) !important;
+}
+
+.hero-subtitle {
+  color: var(--text-secondary) !important;
+}
+
+.stat {
+  background: rgba(255, 107, 107, 0.15) !important;
+  border: 1px solid var(--border-primary) !important;
+}
+
+.stat i {
+  color: var(--primary-light) !important;
+}
+
+/* Buttons */
+.btn {
+  background: var(--primary-gradient) !important;
+  box-shadow: 0 4px 16px var(--shadow-primary) !important;
+}
+
+.btn:hover {
+  box-shadow: 0 8px 25px var(--shadow-primary) !important;
+}
+
+.btn-secondary {
+  border: 2px solid var(--primary-light) !important;
+  color: var(--primary-light) !important;
+}
+
+.btn-secondary:hover {
+  background: var(--primary-light) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Menu Section */
+.menu-section {
+  background: var(--bg-secondary) !important;
+}
+
+.menu-section h2 {
+  background: var(--primary-gradient) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  text-shadow: 0 2px 16px var(--shadow-primary) !important;
+}
+
+.filter-btn {
+  background: rgba(255, 107, 107, 0.15) !important;
+  border: 1px solid var(--border-primary) !important;
+  color: var(--primary-light) !important;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: var(--primary-gradient) !important;
+  color: var(--text-primary) !important;
+  box-shadow: 0 6px 20px var(--shadow-primary) !important;
+}
+
+/* Menu Cards */
+.menu-card {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-light) !important;
+  box-shadow: 0 8px 32px var(--shadow-dark) !important;
+}
+
+.menu-card::before {
+  background: var(--primary-gradient) !important;
+}
+
+.menu-card:hover {
+  box-shadow: 0 20px 40px var(--shadow-primary) !important;
+}
+
+.card-badge {
+  background: var(--primary-gradient) !important;
+  box-shadow: 0 4px 12px var(--shadow-primary) !important;
+}
+
+.menu-card h3 {
+  background: var(--primary-gradient) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.menu-card p {
+  color: var(--text-secondary) !important;
+}
+
+.price {
+  background: var(--primary-gradient) !important;
+  box-shadow: 0 4px 12px var(--shadow-primary) !important;
+}
+
+.add-to-cart {
+  background: rgba(255, 107, 107, 0.15) !important;
+  border: 1px solid var(--primary-light) !important;
+  color: var(--primary-light) !important;
+}
+
+.add-to-cart:hover {
+  background: var(--primary-gradient) !important;
+  color: var(--text-primary) !important;
+}
+
+/* About Section */
+.about {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-light) !important;
+  box-shadow: 0 8px 32px var(--shadow-dark) !important;
+}
+
+.feature {
+  background: rgba(255, 107, 107, 0.1) !important;
+  border: 1px solid var(--border-primary) !important;
+}
+
+.feature:hover {
+  box-shadow: 0 10px 25px var(--shadow-primary) !important;
+}
+
+.feature i,
+.feature h4 {
+  background: var(--primary-gradient) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.about-text p {
+  color: var(--text-secondary) !important;
+}
+
+.credit {
+  color: var(--text-muted) !important;
+}
+
+/* Testimonials */
+.testimonials {
+  background: var(--bg-secondary) !important;
+}
+
+.testimonials h2 {
+  background: var(--primary-gradient) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.testimonial-card {
+  background: rgba(26, 26, 46, 0.8) !important;
+  border: 1px solid var(--border-light) !important;
+}
+
+.testimonial-card:hover {
+  box-shadow: 0 15px 35px var(--shadow-primary) !important;
+}
+
+.stars {
+  color: var(--accent-gold) !important;
+}
+
+.testimonial-card p {
+  color: var(--text-secondary) !important;
+}
+
+.customer img {
+  border: 3px solid var(--primary-light) !important;
+}
+
+.customer h4 {
+  background: var(--primary-gradient) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.customer span {
+  color: var(--text-muted) !important;
+}
+
+/* Contact Section */
+.contact {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-light) !important;
+  box-shadow: 0 8px 32px var(--shadow-dark) !important;
+}
+
+.contact-item {
+  background: rgba(255, 107, 107, 0.1) !important;
+  border: 1px solid var(--border-primary) !important;
+}
+
+.contact-item:hover {
+  box-shadow: 0 8px 20px var(--shadow-primary) !important;
+}
+
+.contact-item i,
+.contact-item h4 {
+  background: var(--primary-gradient) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.contact-form {
+  background: rgba(26, 26, 46, 0.8) !important;
+  border: 1px solid var(--border-light) !important;
+  box-shadow: 0 8px 25px var(--shadow-dark) !important;
+}
+
+.contact input,
+.contact textarea {
+  border: 1px solid var(--border-primary) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: var(--text-primary) !important;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+  border-color: var(--primary-light) !important;
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2) !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.contact button {
+  background: var(--primary-gradient) !important;
+  box-shadow: 0 6px 20px var(--shadow-primary) !important;
+}
+
+.contact button:hover {
+  box-shadow: 0 10px 25px var(--shadow-primary) !important;
+}
+
+/* Cart Sidebar */
+.cart-sidebar {
+  background: var(--bg-card) !important;
+  border-left: 1px solid var(--border-light) !important;
+  box-shadow: -8px 0 30px var(--shadow-dark) !important;
+}
+
+.cart-header {
+  background: rgba(255, 107, 107, 0.1) !important;
+  border-bottom: 1px solid var(--border-light) !important;
+}
+
+.cart-header h3 {
+  background: var(--primary-gradient) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.close-cart {
+  color: var(--primary-light) !important;
+}
+
+.close-cart:hover {
+  background: rgba(255, 107, 107, 0.2) !important;
+}
+
+.cart-item {
+  background: rgba(26, 26, 46, 0.8) !important;
+  border: 1px solid var(--border-light) !important;
+}
+
+.cart-item:hover {
+  box-shadow: 0 5px 15px var(--shadow-primary) !important;
+}
+
+.cart-item img {
+  border: 2px solid var(--primary-light) !important;
+}
+
+.cart-item-info h4 {
+  background: var(--primary-gradient) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.cart-item-info p {
+  color: var(--text-muted) !important;
+}
+
+.cart-item-price {
+  background: var(--primary-gradient) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.cart-total {
+  background: rgba(26, 26, 46, 0.9) !important;
+  border-top: 1px solid var(--border-light) !important;
+}
+
+.cart-total h4 {
+  background: var(--primary-gradient) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* Cart Toggle */
+.cart-toggle {
+  background: var(--primary-gradient) !important;
+  box-shadow: 0 8px 25px var(--shadow-primary) !important;
+}
+
+.cart-toggle:hover {
+  box-shadow: 0 12px 30px var(--shadow-primary) !important;
+}
+
+.cart-count {
+  background: var(--accent-red) !important;
+  border: 2px solid var(--text-primary) !important;
+}
+
+/* Footer */
+footer {
+  background: var(--bg-primary) !important;
+  border-top: 1px solid var(--border-light) !important;
+  box-shadow: 0 -4px 20px var(--shadow-dark) !important;
+}
+
+.footer-section h3,
+.footer-section h4 {
+  background: var(--primary-gradient) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.footer-section p {
+  color: var(--text-secondary) !important;
+}
+
+.footer-section ul li a {
+  color: var(--text-secondary) !important;
+}
+
+.footer-section ul li a:hover {
+  color: var(--primary-light) !important;
+}
+
+.social-links a {
+  color: var(--primary-light) !important;
+  background: rgba(255, 107, 107, 0.1) !important;
+}
+
+.social-links a:hover {
+  background: var(--primary-gradient) !important;
+  color: var(--text-primary) !important;
+}
+
+.footer-bottom {
+  color: var(--text-muted) !important;
+  border-top: 1px solid var(--border-light) !important;
+}
+
+/* Section Headers */
+section h2 {
+  background: var(--primary-gradient) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+section h2::after {
+  background: var(--primary-gradient) !important;
+}
+
+/* Headline Background */
+.headline-bg {
+  border: 1px solid var(--border-primary) !important;
+  box-shadow: 0 8px 30px var(--shadow-primary) !important;
+}
+
+/* Notifications */
+.notification {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%) !important;
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Ripple Effect */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(0);
+  animation: ripple-animation 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Enhanced Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(26, 26, 46, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-gradient);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-gradient);
+}
